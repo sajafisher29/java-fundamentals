@@ -3,23 +3,70 @@
  */
 package basiclibrary;
 
+import java.util.Random;
+
 public class Library {
     public boolean someLibraryMethod() {
         return true;
     }
 
     //Write a method called roll that accepts an integer n and rolls a six-sided dice n times. The method should return an array containing the values of the rolls.
-    public void testRoll
+    //After the IntStream didn't work I found https://introcs.cs.princeton.edu/java/13flow/RollDie.java.html and modified my code to use Math.Random.
+
+    public static int[] roll(int nRolls) {
+        int[] rollsArr = new int[nRolls];
+        int i = 0;
+        int diceSides = 6;
+
+        while (i < nRolls) {
+            int randomRoll = (int) (Math.random() * diceSides) + 1;
+            rollsArr[i] = randomRoll;
+            i++;
+        }
+        return rollsArr;
+    }
 
     //Write a method called containsDuplicates that returns true or false depending on whether the array contains duplicate values.
-    public void testContainsDuplicates
+    public static boolean containsDuplicates(int[] testArr) {
+        boolean duplicates = true;
+        for (int i = 0; i < testArr.length; i++) {
+            for (int j = i + 1; j <testArr.length; j++) {
+                if(testArr[i] == (testArr[j])) {
+                    duplicates = true;
+                } else {duplicates = false;};
+            }
+        }
+        return duplicates;
+    }
 
     //Write a method that accepts an array of integers and calculates and returns the average of all the values in the array.
-    public void testCalculatingAverages
+    public static double calculatingAverage(int[] testAverageArr) {
+        int totalOfArr = 0;
+        double averageOfArr = 0;
+
+        for (int value : testAverageArr) {
+            totalOfArr += value;
+        }
+        averageOfArr = (double) totalOfArr/testAverageArr.length;
+
+        return averageOfArr;
+    }
 
     //Given an array of arrays calculate the average value for each array and return the array with the lowest average.
-    public void testLowestAverageArr
+    //Thank you to James for helping me get out of my head and simplify the thought process!
+    public static int[] lowestAverageArr(int[][] arrOfArrs) {
+        int lowestAverageIndex = 0;
+        double lowestAverage = calculatingAverage(arrOfArrs[lowestAverageIndex]);
 
+        for (int i = 1; i < arrOfArrs.length; i++) {
+            double tempAverage = calculatingAverage(arrOfArrs[i]);
+            if (tempAverage < lowestAverage) {
+                lowestAverage = tempAverage;
+                lowestAverageIndex = i;
+            }
+        }
+        return arrOfArrs[lowestAverageIndex];
+    }
 }
 
 

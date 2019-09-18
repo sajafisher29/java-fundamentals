@@ -19,8 +19,8 @@ public class LibraryTest {
     @Test public void testRoll_correctArr() {
         assertEquals(
                 "This array contains the correct number of roll values within the dice number options.",
-                "5",
-                Arrays.toString(Library.roll(new int[5], 5))
+                5,
+                Library.roll(5).length
         );
     }
 
@@ -28,8 +28,8 @@ public class LibraryTest {
     @Test public void testContainsDuplicates_true() {
         assertEquals(
                 "This array contains duplicate values and returns true",
-                "true",
-                Arrays.toString(Library.containsDuplicates(new int[]{3, 2, 90, 49, 2}))
+                true,
+                Library.containsDuplicates(new int[]{3, 2, 90, 49, 2})
         );
     }
 
@@ -37,17 +37,19 @@ public class LibraryTest {
     @Test public void testCalculatingAverage_correctAverage() {
         assertEquals(
                 "This is the correct average for the array values.",
-                "34",
-                Arrays.toString(Library.calculatingAverage(new int[]{5, 90, 7}))
+                34.0,
+                Library.calculatingAverage(new int[]{5, 90, 7}),
+                0.001
         );
     }
 
     //Given an array of arrays calculate the average value for each array and return the array with the lowest average.
     @Test public void testLowestAverageArr_correctArr() {
-        assertEquals(
+        int[] expected = {3, 9, 7};
+        assertArrayEquals(
                 "This is the correct array with the lowest average.",
-                "[3, 9, 7]",
-                Arrays.toString(Library.lowestAverageArr(new int[][]{{4, 16, 52}, {3, 9, 7}, {17, 41, 1}}))
+                expected,
+                Library.lowestAverageArr(new int[][]{{4, 16, 52}, {3, 9, 7}, {17, 41, 1}})
         );
     }
 }
