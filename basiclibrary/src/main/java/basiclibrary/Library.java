@@ -7,7 +7,6 @@ import java.util.Random;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Scanner;
-import java.
 
 public class Library {
     public boolean someLibraryMethod() {
@@ -100,21 +99,33 @@ public class Library {
     //Iterate from the min to max temp and create a String containing any temperature not seen during the month
 
     public static String analyzeWeatherData(int[][] weeklyMonthTemperatures){
-        int minTemperature = weeklyMonthTemperatures[0][0];
-        int min = Integer.MAX_VALUE;
+        int minTemperature = Integer.MAX_VALUE;
+        int maxTemperature = Integer.MIN_VALUE;
+        String returnDataString = "";
 
-
-        //Store max value
-        HashSet<int> trackWeatherData = new HashSet<>();
+        HashSet<Integer> trackWeatherData = new HashSet<>();
 
         for (int i = 0; i < weeklyMonthTemperatures.length; i++) {
             for (int j = 0; j < weeklyMonthTemperatures[i].length; j++) {
-                //If element is less than the min
-                //If new max asign max
-                //If new value add to HashSet
-                trackWeatherData.add(//new value)
+                trackWeatherData.add(weeklyMonthTemperatures[i][j]);
+                if ( weeklyMonthTemperatures[i][j] < minTemperature) {
+                    minTemperature = weeklyMonthTemperatures[i][j];
+                }
+                if ( weeklyMonthTemperatures[i][j] > maxTemperature) {
+                    maxTemperature = weeklyMonthTemperatures[i][j];
+                }
             }
         }
+
+        returnDataString += "High: " + maxTemperature + "\n";
+        returnDataString += "Low: " + minTemperature + "\n";
+
+        for (int i = minTemperature + 1; i < maxTemperature; i++) {
+            if (!trackWeatherData.contains(i)) {
+                returnDataString += "Never saw temperature: " + i+ "\n";
+            }
+        }
+        return returnDataString;
     }
 
 }

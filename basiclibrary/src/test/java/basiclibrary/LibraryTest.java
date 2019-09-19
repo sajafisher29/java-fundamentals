@@ -80,10 +80,10 @@ public class LibraryTest {
                 "Never saw temperature: 67\n" +
                 "Never saw temperature: 68\n" +
                 "Never saw temperature: 69";
-        assertArrayEquals(
+        assertEquals(
                 "This code finds and returns the correct strings.",
                 expected,
-                Library.weeklyMonthTemperatures(new int[][]{
+                Library.analyzeWeatherData(new int[][]{
                         {66, 64, 58, 65, 71, 57, 60},
                         {57, 65, 65, 70, 72, 65, 51},
                         {55, 54, 60, 53, 59, 57, 61},
