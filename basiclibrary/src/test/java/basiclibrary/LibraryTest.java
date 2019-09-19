@@ -5,7 +5,9 @@ package basiclibrary;
 
 import org.junit.Test;
 import static org.junit.Assert.*;
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 
 public class LibraryTest {
     @Test public void testSomeLibraryMethod() {
@@ -73,7 +75,7 @@ public class LibraryTest {
     //Never saw temperature: 68
     //Never saw temperature: 69
 
-    @Test public void testanalyzeWeatherData_correctStrings() {
+    @Test public void testAnalyzeWeatherData_correctStrings() {
         String expected = "High: 72\n" +
                 "Low: 51\n" +
                 "Never saw temperature: 63\n" +
@@ -90,5 +92,40 @@ public class LibraryTest {
                         {65, 56, 55, 52, 55, 62, 57}})
         );
     }
+
+    //Tallying Election: Write a function called tally that accepts a List of Strings representing votes and returns one string to show what got the most votes.
+    //Within main method include
+    //List<String> votes = new ArrayList<>();
+    //votes.add("Bush");
+    //votes.add("Bush");
+    //votes.add("Bush");
+    //votes.add("Shrub");
+    //votes.add("Hedge");
+    //votes.add("Shrub");
+    //votes.add("Bush");
+    //votes.add("Hedge");
+    //votes.add("Bush");
+    //String winner = tally(votes);
+    //System.out.println(winner + " received the most votes!");
+
+    @Test public void testTally_correctString() {
+        String expected = "Bush received the most votes!";
+        List<String> votes = new ArrayList<>();
+            votes.add("Bush");
+            votes.add("Bush");
+            votes.add("Bush");
+            votes.add("Shrub");
+            votes.add("Hedge");
+            votes.add("Shrub");
+            votes.add("Bush");
+            votes.add("Hedge");
+            votes.add("Bush");
+        String winner = tally(votes);
+        assertEquals(
+                "This code finds and returns the correct string with the correct winner.",
+                expected,
+                winner);
+    }
+
 
 }

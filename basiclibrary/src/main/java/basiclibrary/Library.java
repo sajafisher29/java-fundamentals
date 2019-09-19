@@ -3,10 +3,7 @@
  */
 package basiclibrary;
 
-import java.util.Random;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Scanner;
+import java.util.*;
 
 public class Library {
     public boolean someLibraryMethod() {
@@ -128,4 +125,33 @@ public class Library {
         return returnDataString;
     }
 
+    //Tallying Election: Write a function called tally that accepts a List of Strings representing votes and returns one string to show what got the most votes.
+    //Within main method include
+        //List<String> votes = new ArrayList<>();
+            //votes.add("Bush");
+            //votes.add("Bush");
+            //votes.add("Bush");
+            //votes.add("Shrub");
+            //votes.add("Hedge");
+            //votes.add("Shrub");
+            //votes.add("Bush");
+            //votes.add("Hedge");
+            //votes.add("Bush");
+        //String winner = tally(votes);
+        //System.out.println(winner + " received the most votes!");
+
+    public static String tally(List<String> votesList) {
+        votesList = new ArrayList<>();
+        votesList.add("Bush");
+        votesList.add("Bush");
+        votesList.add("Bush");
+        votesList.add("Shrub");
+        votesList.add("Hedge");
+        votesList.add("Shrub");
+        votesList.add("Bush");
+        votesList.add("Hedge");
+        votesList.add("Bush");
+        String winner = tally(votesList);
+        return winner + " received the most votes!";
+    }
 }
