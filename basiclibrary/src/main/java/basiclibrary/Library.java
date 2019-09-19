@@ -69,6 +69,22 @@ public class Library {
     }
 }
 
+//Start of Lab 03 work
 
+//Analyzing Weather Data: Using the October Seattle weather data below, iterate through all of the data to find the min and max values. Use a HashSet of type Integer to keep track of all the unique temperatures seen. Iterate from the min temp to the max temp and create a String containing any temperature not seen during the month. Return that String.
 
+//Data: Daily average temperatures for Seattle, October 1-28 2017
+//int[][] weeklyMonthTemperatures = {
+//  {66, 64, 58, 65, 71, 57, 60},
+//  {57, 65, 65, 70, 72, 65, 51},
+//  {55, 54, 60, 53, 59, 57, 61},
+//  {65, 56, 55, 52, 55, 62, 57}
+//};
+//Expected output:
+//High: 72
+//Low: 51
+//Never saw temperature: 63
+//Never saw temperature: 67
+//Never saw temperature: 68
+//Never saw temperature: 69
 
