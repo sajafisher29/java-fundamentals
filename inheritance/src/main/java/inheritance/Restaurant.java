@@ -3,15 +3,23 @@
  */
 package inheritance;
 
+//Create class representing Restaurant(name, number of stars betweeen 0 and 5, price category (i.e. number of dollar signs)).
 public class Restaurant {
-    public boolean someLibraryMethod() {
-        return true;
+    String name;
+    int rating;
+    String price;
+
+//Implement Restaurant constructor.
+    Restaurant(String name, int rating, String price){
+        this.name = name;
+        this.rating = rating;
+        this.price = price;
     }
 
-//Create class representing Restaurant(name, number of stars betweeen 0 and 5, price category (i.e. number of dollar signs)).
-//Implement Restaurant constructor.
-//Test that your Restaurant constructor is behaving reasonably.
 //Implement a reasonable toString method for Restaurants.
-//Write a test to create an instance of Restaurant and ensure that its toString is working properly.
+    public String toString() {
+        return name + " is a restaurant with " + rating + " stars and is in the " + price + " price category.";
+    }
+
 
 }

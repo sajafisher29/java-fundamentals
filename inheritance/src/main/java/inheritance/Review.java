@@ -1,9 +1,22 @@
 package inheritance;
 
+//Create class to represent Review(body, author, a number of stars).
 public class Review {
-    //Create class to represent Review(body, author, a number of stars).
+    String body;
+    String author;
+    int stars;
+
     //Write Review constructor.
-    //Test that your constructor is working reasonably.
+    public Review(String body, String author, int stars) {
+        this.body = body;
+        this.author = author;
+        this.stars = stars;
+    }
+
     //Implement a reasonable toString method for Reviews.
-    //Write a test to create an instance of Review and ensure that its toString is working properly.
+    public String toString() {
+        return body + " This review was written by " + author + " who gave it " + stars + " stars in the review.";
+    }
 }
+
+
