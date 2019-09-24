@@ -3,6 +3,8 @@
  */
 package inheritance;
 
+import java.util.LinkedList;
+
 //Create class representing Restaurant(name, number of stars betweeen 0 and 5, price category (i.e. number of dollar signs)).
 public class Restaurant {
     String name;
@@ -21,5 +23,13 @@ public class Restaurant {
         return name + " is a restaurant with " + rating + " stars and is in the " + price + " price category.";
     }
 
+//Linked List containing the Restaurant's reviews
+    public void addReview(Review review) {
+        LinkedList reviewsList = new LinkedList();
+        //Review.name = this.Restaurant.name
+    }
 
+//Compile the reviewsList and average the stars
+
+//Need to update toString and constructor to reflect inheritance relationship
 }

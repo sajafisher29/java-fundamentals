@@ -16,4 +16,8 @@ public class ReviewTest {
         Review woodblock = new Review();
         assertEquals("Woodblock is my favorite place to go for a nice meal or a fun happy hour! This review was written by Divya who gave it 5 stars in the review.", )
     }
+
+    //Need to update toString and constructor to reflect inheritance relationship
+
+    //Test to make sure calling addReview doesn't change the Restaurant rating if they are already associated
 }

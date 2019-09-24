@@ -18,4 +18,8 @@ public class RestaurantTest {
         Restaurant woodblock = new Restaurant("Woodblock", 5, "$$");
         assertEquals("Woodblock is a restaurant with 5 stars and is in the $$ price category.");
     }
+
+    //Need to update toString and constructor to reflect inheritance relationship
+
+    //Test to make sure calling addReview doesn't change the Restaurant rating if they are already associated
 }
