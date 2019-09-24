@@ -6,7 +6,7 @@ package inheritance;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
-public class LibraryTest {
+public class RestaurantTest {
     @Test public void testSomeLibraryMethod() {
         Library classUnderTest = new Library();
         assertTrue("someLibraryMethod should return 'true'", classUnderTest.someLibraryMethod());
