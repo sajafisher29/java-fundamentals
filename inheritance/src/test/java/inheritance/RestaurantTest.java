@@ -9,16 +9,24 @@ import static org.junit.Assert.*;
 
 public class RestaurantTest {
     Restaurant woodblock;
+    Review newReview;
+
     @Before public void setup() {
         woodblock = new Restaurant("Woodblock", 4);
-        woodblock.addReview( "The brunch is a super yummy addition!", "Divya",5);
-        woodblock.addReview( "Too popular, can't hear.", "Stacy",2);
-        woodblock.addReview("Love this local joint, and locally owned!", "Steve", 5);
+        newReview = new Review("The brunch is a super yummy addition!", "Divya", 5);
+//        woodblock.addReview("Too popular, can't hear.", "Stacy", 2);
+//        woodblock.addReview("Love this local joint, and locally owned!", "Steve", 5);
     }
+
+    //Test that review can be added
+    @Test public void testRestaurantAddsReview() {
+        woodblock.addReview(newReview);
+    }
+
     //Test that your Restaurant constructor and toString is behaving reasonably.
     @Test public void testRestaurant_addReviewToString_True() {
-        assertEquals("This should return Woodblock with 4 stars",
-                "Woodblock has 4.0 stars and $4 price.",
+        assertEquals("This should return Woodblock with 5 stars",
+                "Woodblock has 5 stars and $4 price.",
                 woodblock.toString());
     }
 
@@ -45,20 +53,18 @@ public class RestaurantTest {
 
     //Write a test to create an instance of Restaurant and ensure that its toString is working properly.
     @Test public void testRestaurant_addReviewToString_ReturnReviewTrue() {
+        woodblock.addReview(newReview);
         assertEquals("This should return the Woodblock reviews",
-                "Steve writes: Love this local joint, and locally owned! They give 5 stars.\n" +
-                        "Stacy writes: Too popular, can't hear. They give 2 stars.\n" +
-                        "Divya writes: The brunch is a super yummy addition! They give 5 stars.",
+                "Divya writes: The brunch is a super yummy addition! They give 5 stars.",
                 woodblock.returnReviews().toString()
                 );
     }
 
     //Write a test to create an instance of Restaurant and ensure that its toString is working properly.
     @Test public void testRestaurant_addReviewToString_ReturnReviewFalse() {
+        woodblock.addReview(newReview);
         assertNotEquals("This should return the Woodblock reviews",
-                "Steve writes: Love this local joint, and locally owned! They give 5 stars.\n" +
-                        "Stacy writes: Too popular, can't hear. They give 2 stars.\n" +
-                        "Divya writes: The brunch is a super yummy addition! They give 5 stars.",
+                "Divya writes: The brunch is a super yummy addition! They give 5 stars.",
                 woodblock.returnReviews()
         );
     }

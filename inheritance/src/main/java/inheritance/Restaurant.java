@@ -3,13 +3,15 @@
  */
 package inheritance;
 
+import java.util.LinkedList;
 import java.util.StringJoiner;
 
 //Create class representing Restaurant(name, number of stars betweeen 0 and 5, price category (i.e. number of dollar signs)).
-public class Restaurant {
+public class Restaurant implements ReviewFormat{
     String name;
     double stars;
     int price;
+    LinkedList<Review> listOfReviews = new LinkedList<>();
 
     //Implement Restaurant constructor.
     public Restaurant(String name, int price){
@@ -35,7 +37,7 @@ public class Restaurant {
     }
 
 //Add node to beginning of list
-    private void insertHeadReview(Review data) {this.head = new Node(data, this.head);}
+    private void insertReview(Review data) {this.head = new Node(data, this.head);}
 
 //Update the Restaurant's rating based on reviews
     private void updateStarsRating() {
@@ -60,9 +62,18 @@ public class Restaurant {
         }
     }
 
-//Linked List containing the Restaurant's reviews
-    public void addReview(String body, String author, int stars) {
-        insertHeadReview(new Review(body, author, stars));
+    @Override
+    public String getName() {
+        return this.name;
+    }
+
+    //Linked List containing the Restaurant's reviews
+    public void addReview(Review review) {
+        if (listOfReviews.contains(review)) {
+            throw new IllegalArgumentException(String.format("A review for %s has already been submitted.", this.name));
+        } else {
+            listOfReviews.add(review);
+        }
         updateStarsRating();
     }
 
