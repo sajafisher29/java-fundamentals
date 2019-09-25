@@ -1,16 +1,17 @@
 package inheritance;
 
 import java.util.LinkedList;
+import java.util.StringJoiner;
 
 public class Theater implements ReviewFormat {
 
     public String name;
-    public String movies;
+    public LinkedList<String> listOfMovies;
     public LinkedList<Review> listOfReviews;
 
-    public Theater(String name, String movies) {
+    public Theater(String name) {
         this.name = name;
-        this.movies = movies;
+        this.listOfMovies = new LinkedList<>();
         this.listOfReviews = new LinkedList<>();
     }
 
@@ -30,17 +31,52 @@ public class Theater implements ReviewFormat {
     }
 
     //Add a movie to update list
-    public String addMovie() {
-
+    public void addMovie(String movie) {
+        if (listOfMovies == null) {
+            listOfMovies = new LinkedList<>();
+        }
+        this.listOfMovies.add(movie);
     }
 
     //Remove a movie to update list
-    public String removeMovie() {
+    public void removeMovie(String movie) {
+        if (listOfMovies == null) {
+            System.out.println("There are no movies stored.");
+        } else {
+            this.listOfMovies.remove(movie);
+        }
+    }
 
+//    //Create head of LinkedList to hold movie titles
+//    Node head = null;
+//
+//    class Node {
+//        String title;
+//        Node next;
+//
+//        Node(String title) {
+//            this(title, null);
+//        }
+//
+//        Node(String title, Node next) {
+//            this.title = title;
+//            this.next = next;
+//        }
+//    }
+
+    //Method to print the listOfMovies
+    public String printMovies() {
+        StringJoiner movieList = new StringJoiner(", ");
+
+        // Traverse through the list
+        for (String title : listOfMovies) {
+            movieList.add(title);
+        }
+        return movieList.toString();
     }
 
     @Override
     public String toString() {
-        return String.format("%s is showing %s.", this.name, this.movies);
+        return String.format("%s is showing %s.", this.name, printMovies());
     }
 }

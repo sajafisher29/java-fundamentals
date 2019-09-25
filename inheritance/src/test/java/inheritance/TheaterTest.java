@@ -11,7 +11,7 @@ public class TheaterTest {
 
     @Before
     public void setup() {
-        ipic = new Theater("IPIC", "Up, Pets, Whale Rider");
+        ipic = new Theater("IPIC");
         newReview = new Review("Fun and fancy for a chill movie and dinner.", "Sarah", 4);
     }
 
@@ -19,7 +19,7 @@ public class TheaterTest {
     @Test
     public void testTheater_constructorToString() {
         assertEquals("This should build the theater IPIC.",
-                "IPIC is showing Up, Pets, Whale Rider.",
+                "IPIC is showing .",
                 ipic.toString());
     }
     //Test if a shop instance can have reviews added
