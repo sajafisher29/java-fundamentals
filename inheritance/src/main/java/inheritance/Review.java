@@ -15,13 +15,8 @@ public class Review {
 
     //Implement a reasonable toString method for Reviews.
     public String toString() {
-        String completeReview = body + " This review was written by " + author + " who gave it " + stars + " stars in the review.";
-        return completeReview;
+        return String.format("%s writes: %s They give %d stars.", this.author, this.body, this.stars);
     }
-
-    //Need to update toString and constructor to reflect inheritance relationship
-    //Need to add each review to the LinkedList in Restaurant - reviews
-
 }
 
 
