@@ -1,7 +1,7 @@
 package inheritance;
 
 //Create class to represent Review(body, author, a number of stars).
-public class Review {
+public class Review{
     String body;
     String author;
     int stars;
