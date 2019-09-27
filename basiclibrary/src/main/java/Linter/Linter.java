@@ -4,7 +4,7 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.Scanner;
 
-public class App {
+public class Linter {
     public static void main(String[] args) {
         try {
             Scanner scanner = new Scanner(new File("src/main/resources/gates.js"));
@@ -22,7 +22,7 @@ public class App {
 // Don’t show an error if the line contains if or else
 // Call that method in your main method on the file gates.js, and print out the resulting error message.
 
-    private static String jsLinter(Scanner scanner) {
+    static String jsLinter(Scanner scanner) {
         int lineCount = 0;
         String resultingError = "";
 
@@ -46,7 +46,7 @@ public class App {
                     }
                     if (!containsCurlyIfElse && (lastCharacter != ';')) {
                         System.out.println(String.format("Line %d does not end with a semicolon.", lineCount));
-                        resultingError += String.format("Line %d does not end with a semicolon.", lineCount);
+                        resultingError += String.format("Line %d does not end with a semicolon.\n", lineCount);
                     }
                 }
             }
