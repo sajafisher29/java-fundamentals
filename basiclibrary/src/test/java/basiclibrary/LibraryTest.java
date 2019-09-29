@@ -11,4 +11,46 @@ public class LibraryTest {
         Library classUnderTest = new Library();
         assertTrue("someLibraryMethod should return 'true'", classUnderTest.someLibraryMethod());
     }
-}
+
+//Use JUnit to write at least one test for each of the Feature Tasks. Your tests should ensure that each of your methods work correctly.
+
+        //Write a method called roll that accepts an integer n and rolls a six-sided dice n times. The method should return an array containing the values of the rolls.
+        @Test public void testRoll_correctArr() {
+            assertEquals(
+                    "This array contains the correct number of roll values within the dice number options.",
+                    5,
+                    Library.roll(5).length
+            );
+        }
+
+        //Write a method called containsDuplicates that returns true or false depending on whether the array contains duplicate values.
+        @Test public void testContainsDuplicates_true() {
+            assertEquals(
+                    "This array contains duplicate values and returns true",
+                    true,
+                    Library.containsDuplicates(new int[]{3, 2, 90, 49, 2})
+            );
+        }
+
+        //Write a method that accepts an array of integers and calculates and returns the average of all the values in the array.
+        @Test public void testCalculatingAverage_correctAverage() {
+            assertEquals(
+                    "This is the correct average for the array values.",
+                    34.0,
+                    Library.calculatingAverage(new int[]{5, 90, 7}),
+                    0.001
+            );
+        }
+
+
+        //Given an array of arrays calculate the average value for each array and return the array with the lowest average.
+        @Test public void testLowestAverageArr_correctArr() {
+            int[] expected = {3, 9, 7};
+            assertArrayEquals(
+                    "This is the correct array with the lowest average.",
+                    expected,
+                    Library.lowestAverageArr(new int[][]{{4, 16, 52}, {3, 9, 7}, {17, 41, 1}})
+            );
+        }
+
+    }
