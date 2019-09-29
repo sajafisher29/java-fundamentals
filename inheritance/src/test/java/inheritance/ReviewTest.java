@@ -14,7 +14,7 @@ public class ReviewTest {
     //Write a test to create an instance of Review and ensure that its toString is working properly.
     @Test public void testReviewWoodblock() {
         assertEquals("This should return Steve's review of Woodblock.",
-                "Steve writes: Love this local joint, and locally owned! They give it 5 stars",
+                "Steve writes: Love this local joint, and locally owned! They give 5 stars.",
                 review.toString());
     }
 
