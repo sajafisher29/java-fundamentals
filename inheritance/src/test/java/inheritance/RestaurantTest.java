@@ -26,7 +26,7 @@ public class RestaurantTest {
     //Test that your Restaurant constructor and toString is behaving reasonably.
     @Test public void testRestaurant_addReviewToString_True() {
         assertEquals("This should return Woodblock with 5 stars",
-                "Woodblock has 5 stars and $4 price.",
+                "Woodblock has 5.0 stars and $4 price.",
                 woodblock.toString());
     }
 
@@ -49,24 +49,6 @@ public class RestaurantTest {
         assertNotEquals("This should return Woodblock with 5 stars",
                 "Nirmals has 4 stars and $4 price.",
                 woodblock.toString());
-    }
-
-    //Write a test to create an instance of Restaurant and ensure that its toString is working properly.
-    @Test public void testRestaurant_addReviewToString_ReturnReviewTrue() {
-        woodblock.addReview(newReview);
-        assertEquals("This should return the Woodblock reviews",
-                "Divya writes: The brunch is a super yummy addition! They give 5 stars.",
-                woodblock.returnReviews().toString()
-                );
-    }
-
-    //Write a test to create an instance of Restaurant and ensure that its toString is working properly.
-    @Test public void testRestaurant_addReviewToString_ReturnReviewFalse() {
-        woodblock.addReview(newReview);
-        assertNotEquals("This should return the Woodblock reviews",
-                "Divya writes: The brunch is a super yummy addition! They give 5 stars.",
-                woodblock.returnReviews()
-        );
     }
 
     //Need to update toString and constructor to reflect inheritance relationship

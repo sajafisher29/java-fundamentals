@@ -6,60 +6,36 @@ package inheritance;
 import java.util.LinkedList;
 import java.util.StringJoiner;
 
-//Create class representing Restaurant(name, number of stars betweeen 0 and 5, price category (i.e. number of dollar signs)).
+//Create class representing Restaurant(name, number of stars between 0 and 5, price category (i.e. number of dollar signs)).
 public class Restaurant implements ReviewFormat{
-    String name;
-    double stars;
-    int price;
-    LinkedList<Review> listOfReviews = new LinkedList<>();
+    private String name;
+    private double stars;
+    private int price;
+    private LinkedList<Review> listOfReviews = new LinkedList<>();
 
-    //Implement Restaurant constructor.
+//Implement Restaurant constructor.
     public Restaurant(String name, int price){
         this.name = name;
         this.price = price;
     }
 
-//Create head of LinkedList to hold reviews
-    Node head;
-
-    class Node {
-        Review data;
-        Node next;
-
-        Node(Review data) {
-            this(data, null);
-        }
-
-        Node(Review data, Node next) {
-            this.data = data;
-            this.next = next;
-        }
-    }
-
-//Add node to beginning of list
-    private void insertReview(Review data) {this.head = new Node(data, this.head);}
-
 //Update the Restaurant's rating based on reviews
-    private void updateStarsRating() {
-        double total = 0;
-        double count = 0;
-
-        //If there are no reviews throw an error
-        if (head == null) {
-            System.out.println("No reviews found.");
-        } else {
-            Node currentNode = this.head;
-
-            //Each review updated the count and total
-            while (currentNode != null) {
-                total += currentNode.data.stars;
-                count++;
-                currentNode = currentNode.next;
-            }
-
-            //Update the stars with the new average
-            this.stars = total/count;
+    public double updateStarsRating() {
+        if (listOfReviews.isEmpty()) {
+            return 5.0;
         }
+
+        int countOfReviews = 1;
+        double sum = 5;
+
+        // Add up the review ratings
+        for (Review review : this.listOfReviews) {
+            countOfReviews++;
+            sum += review.stars;
+        }
+
+        // divide the number of stars by the number of reviews
+        return sum / this.listOfReviews.size();
     }
 
     @Override
@@ -67,7 +43,7 @@ public class Restaurant implements ReviewFormat{
         return this.name;
     }
 
-    //Linked List containing the Restaurant's reviews
+//Linked List containing the Restaurant's reviews
     public void addReview(Review review) {
         if (listOfReviews.contains(review)) {
             throw new IllegalArgumentException(String.format("A review for %s has already been submitted.", this.name));
@@ -79,24 +55,8 @@ public class Restaurant implements ReviewFormat{
 
 //Need to update toString and constructor to reflect inheritance relationship
     @Override public String toString() {
-        return String.format("%s has %s stars and $%s price.", this.name, this.stars, this.price);
+        double currentStarsRating = updateStarsRating();
+        return String.format("%s has %s stars and $%s price.", this.name, currentStarsRating, this.price);
     }
 
-    //Compile the reviewsList and average the stars
-    public StringJoiner returnReviews() {
-        StringJoiner reviewsJoined = new StringJoiner("\n");
-
-        //If there are no reviews, throw an error
-        if (head == null) {
-            System.out.println("No reviews found.");
-        } else {
-            Node currentNode = this.head;
-
-            while (currentNode != null) {
-                reviewsJoined.add(currentNode.data.toString());
-                currentNode = currentNode.next;
-            }
-        }
-        return reviewsJoined;
-    }
 }
